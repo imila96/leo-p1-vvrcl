@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -48,26 +47,28 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="relative pt-48 pb-16 md:pb-20">
+    <section className="relative pt-20 pb-16 md:pb-20">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0b0f17] pointer-events-none" />
       
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-[38%_1fr] lg:grid-cols-[38%_1fr] gap-0">
-          {/* Left Side - Image */}
-          <div className="relative order-2 md:order-1 max-h-[500px] md:max-h-none">
+        <div className="grid grid-cols-1 md:grid-cols-[38%_1fr] lg:grid-cols-[38%_1fr] gap-0 items-stretch overflow-hidden">
+          {/* Left Side - Video from folder */}
+          <div className="relative order-2 md:order-1 max-h-[500px] md:max-h-none self-stretch">
             <div className="relative h-full min-h-[350px] md:min-h-[600px]">
-              <Image
-                src="/images/form-img-724x1024.jpg"
-                alt="Contact"
-                fill
-                className="object-cover rounded-bl-[18px] md:rounded-tl-[18px] md:rounded-bl-[18px] md:rounded-br-0 rounded-br-[18px]"
+              <video
+                src="/videos/contact-bg.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover rounded-bl-[18px] md:rounded-tl-[18px] md:rounded-bl-[18px] md:rounded-br-0 rounded-br-[18px]"
               />
             </div>
           </div>
 
           {/* Right Side - Form */}
-          <div className="bg-[#171717] p-8 md:p-12 lg:p-16 rounded-tr-[18px] rounded-br-[18px] md:rounded-tl-0 md:rounded-bl-0 rounded-tl-[18px] order-1 md:order-2">
+          <div className="bg-[#171717] p-8 md:p-12 lg:p-16 rounded-tr-[18px] rounded-br-[18px] md:rounded-tl-0 md:rounded-bl-0 rounded-tl-[18px] order-1 md:order-2 self-stretch min-h-0">
             <div className="max-w-[630px] mx-auto">
               <h1 className="text-gradient text-4xl md:text-5xl font-semibold mb-8">
                 Need to contact us?
@@ -99,7 +100,7 @@ export default function ContactForm() {
                 {/* Username */}
                 <div className="space-y-3">
                   <label htmlFor="username" className="block text-white text-base font-medium">
-                    Your Index 101 username *
+                    Your Strug Username *
                   </label>
                   <input
                     type="text"
@@ -108,7 +109,7 @@ export default function ContactForm() {
                     value={formData.username}
                     onChange={handleChange}
                     className="w-full px-4 py-3.5 bg-[#111111] border border-[#282c42] rounded-lg text-white font-medium text-base placeholder:text-[#9094a6] placeholder:font-medium focus:border-[#6a6afb] focus:outline-none transition"
-                    placeholder="Enter your username"
+                    placeholder="Enter your Strug username"
                     required
                   />
                 </div>
@@ -147,14 +148,21 @@ export default function ContactForm() {
                   />
                 </div>
 
-                {/* Submit Button */}
+                {/* Submit Button - gradient border via wrapper, dark fill unchanged */}
                 <div className="pt-4">
-                  <button
-                    type="submit"
-                    className="w-full py-4 px-6 bg-[#202125] text-white text-lg font-medium rounded-lg hover:bg-[#2a2a2f] transition-all"
+                  <div
+                    className="w-full rounded-lg p-[2px]"
+                    style={{
+                      background: 'linear-gradient(135deg, #a78bfa 0%, #60a5fa 35%, #22d3ee 65%, #f472b6 100%)',
+                    }}
                   >
-                    Send Message
-                  </button>
+                    <button
+                      type="submit"
+                      className="w-full py-4 px-6 bg-[#202125] text-white text-lg font-medium rounded-[6px] hover:bg-[#2a2a2f] transition-all"
+                    >
+                      Send Message
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>

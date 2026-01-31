@@ -8,31 +8,17 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <>
-      {/* Top Banner */}
-      <div className="w-full bg-[#9a3eaa] py-3.5 px-5 flex items-center justify-center relative z-[1001]">
-        <div className="flex items-center gap-5 flex-wrap">
-          <span className="text-white text-base">
-            GPT-Image-15 Available Now
-          </span>
-          <Link href="#" className="flex items-center gap-1.5">
-            <span className="text-white text-base">→</span>
-          </Link>
-        </div>
-      </div>
-
-      {/* Main Header */}
-      <header className="w-full relative z-[1001]">
+    <header className="w-full relative z-[1001]">
         <div className="container-custom">
           <div className="flex items-center justify-between py-[15px] gap-8">
-            {/* Logo */}
+            {/* Logo - Strug */}
             <Link href="/" className="relative z-[1001] flex-shrink-0 w-[175px]">
               <Image
-                src="/images/leonardo-logo-white-fix.svg"
-                alt="Index 101"
+                src="/images/strug_logo_transparent.png"
+                alt="Strug"
                 width={175}
-                height={44.58}
-                className="w-full h-auto"
+                height={44}
+                className="w-full h-auto object-contain"
               />
             </Link>
 
@@ -141,7 +127,6 @@ export default function Header() {
             </nav>
           </div>
         )}
-      </header>
-    </>
+    </header>
   )
 }
